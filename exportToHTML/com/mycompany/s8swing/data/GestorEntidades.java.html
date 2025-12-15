@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>GestorEntidades.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+GestorEntidades.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">mycompany</span><span class="s2">.</span><span class="s1">s8swing</span><span class="s2">.</span><span class="s1">data</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">mycompany</span><span class="s2">.</span><span class="s1">s8swing</span><span class="s2">.</span><span class="s1">model</span><span class="s2">.*;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Optional</span><span class="s2">;</span>
+
+<span class="s3">//Clase que gestiona arraylist y creacion de objetos a integrar en la lista.</span>
+<span class="s0">public class </span><span class="s1">GestorEntidades </span><span class="s2">{</span>
+
+    <span class="s0">private static </span><span class="s1">GestorEntidades instancia</span><span class="s2">;</span>
+
+    <span class="s3">// Declaracion de arraylist</span>
+    <span class="s0">private </span><span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">Registrable</span><span class="s2">&gt; </span><span class="s1">registrables</span><span class="s2">;</span>
+
+    <span class="s3">//Constructor con condicion</span>
+    <span class="s0">private </span><span class="s1">GestorEntidades</span><span class="s2">(){</span>
+        <span class="s1">registrables </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">registrables</span><span class="s2">.</span><span class="s1">isEmpty</span><span class="s2">()) {</span>
+            <span class="s1">mostrarDatos</span><span class="s2">();</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s3">//Devuelve una unica instancia de Gestor</span>
+    <span class="s0">public static </span><span class="s1">GestorEntidades getInstance</span><span class="s2">() {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">instancia </span><span class="s2">== </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s1">instancia </span><span class="s2">= </span><span class="s0">new </span><span class="s1">GestorEntidades</span><span class="s2">();</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">instancia</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// Metodo añade objetos a la lista y aplica logica diferenciada segun cada objeto</span>
+    <span class="s0">public void </span><span class="s1">mostrarDatos</span><span class="s2">() {</span>
+
+        <span class="s1">CentroCultivo centroCultivo1 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">CentroCultivo</span><span class="s2">(</span><span class="s4">&quot;Centro Multiexport&quot;</span><span class="s2">,</span><span class="s4">&quot;C. Circunvalacion 151-251, Puerto Montt&quot;</span><span class="s2">, </span><span class="s5">80000</span><span class="s2">);</span>
+        <span class="s1">CentroCultivo centroCultivo2 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">CentroCultivo</span><span class="s2">(</span><span class="s4">&quot;Centro Austral&quot;</span><span class="s2">, </span><span class="s4">&quot;Irarrázaval 19, Chonchi&quot;</span><span class="s2">, </span><span class="s5">100000</span><span class="s2">);</span>
+        <span class="s1">CentroCultivo centroCultivo3 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">CentroCultivo</span><span class="s2">(</span><span class="s4">&quot;Salmones Humboldt&quot;</span><span class="s2">, </span><span class="s4">&quot;Juan Soler Manfredini 41, Puerto Montt&quot;</span><span class="s2">, </span><span class="s5">60000</span><span class="s2">);</span>
+
+        <span class="s1">PlantaProceso plantaProceso1 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">PlantaProceso</span><span class="s2">(</span><span class="s4">&quot;PlantMontt Concesiones&quot;</span><span class="s2">, </span><span class="s4">&quot;Punta Arenas, Magallanes and Chilean Antarctica&quot;</span><span class="s2">, </span><span class="s5">900</span><span class="s2">);</span>
+        <span class="s1">PlantaProceso plantaProceso2 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">PlantaProceso</span><span class="s2">(</span><span class="s4">&quot;Planta BlumarMontt&quot;</span><span class="s2">, </span><span class="s4">&quot;Lote 14, KM 8 Norte Ruta 9 S/N, Punta Arenas&quot;</span><span class="s2">, </span><span class="s5">750</span><span class="s2">);</span>
+        <span class="s1">PlantaProceso plantaProceso3 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">PlantaProceso</span><span class="s2">(</span><span class="s4">&quot;Planta Cermaq&quot;</span><span class="s2">, </span><span class="s4">&quot;Avenida Chinquihue, Km 12. 68, Puerto Montt&quot;</span><span class="s2">, </span><span class="s5">1000</span><span class="s2">);</span>
+
+        <span class="s1">Empleado empleado1 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Empleado</span><span class="s2">(</span><span class="s4">&quot;Brad Pitt&quot;</span><span class="s2">, </span><span class="s4">&quot;Carmel Highlands 1478, California&quot;</span><span class="s2">, </span><span class="s4">&quot;Conserje&quot;</span><span class="s2">);</span>
+        <span class="s1">Empleado empleado2 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Empleado</span><span class="s2">(</span><span class="s4">&quot;Ben Affleck&quot;</span><span class="s2">, </span><span class="s4">&quot;Pacific Palisades 2589, Los Ángeles (CA)&quot;</span><span class="s2">, </span><span class="s4">&quot;Cocinero&quot;</span><span class="s2">);</span>
+        <span class="s1">Empleado empleado3 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Empleado</span><span class="s2">(</span><span class="s4">&quot;Hugh Jackman&quot;</span><span class="s2">, </span><span class="s4">&quot;Chelsea 1475, Nueva York&quot;</span><span class="s2">, </span><span class="s4">&quot;Pescador&quot;</span><span class="s2">);</span>
+
+        <span class="s1">registrables</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">centroCultivo1</span><span class="s2">);</span>
+        <span class="s1">registrables</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">centroCultivo2</span><span class="s2">);</span>
+        <span class="s1">registrables</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">centroCultivo3</span><span class="s2">);</span>
+        <span class="s1">registrables</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">plantaProceso1</span><span class="s2">);</span>
+        <span class="s1">registrables</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">plantaProceso2</span><span class="s2">);</span>
+        <span class="s1">registrables</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">plantaProceso3</span><span class="s2">);</span>
+        <span class="s1">registrables</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">empleado1</span><span class="s2">);</span>
+        <span class="s1">registrables</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">empleado2</span><span class="s2">);</span>
+        <span class="s1">registrables</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">empleado3</span><span class="s2">);</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Registrable regis </span><span class="s2">: </span><span class="s1">registrables</span><span class="s2">) {</span>
+            <span class="s1">regis</span><span class="s2">.</span><span class="s1">mostrarResumen</span><span class="s2">();</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">regis </span><span class="s0">instanceof </span><span class="s1">CentroCultivo</span><span class="s2">) {</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">-&gt; Es un centro de cultivo&quot;</span><span class="s2">);</span>
+            <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">regis </span><span class="s0">instanceof </span><span class="s1">PlantaProceso</span><span class="s2">) {</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">-&gt; Es una planta procesadora de salmon&quot;</span><span class="s2">);</span>
+            <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">regis </span><span class="s0">instanceof </span><span class="s1">Empleado</span><span class="s2">) {</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">-&gt; Es un empleado de la planta&quot;</span><span class="s2">);</span>
+            <span class="s2">} </span><span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s3">//Metodos para agregar y listar todos los objetos</span>
+    <span class="s0">public </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">Registrable</span><span class="s2">&gt; </span><span class="s1">obtenerTodas</span><span class="s2">(){</span>
+        <span class="s0">return new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;(</span><span class="s1">registrables</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">agregarRegistrable</span><span class="s2">(</span><span class="s1">Registrable registrable</span><span class="s2">){</span>
+        <span class="s1">registrables</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">registrable</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

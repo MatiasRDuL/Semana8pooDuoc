@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>PlantaProceso.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+PlantaProceso.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">mycompany</span><span class="s2">.</span><span class="s1">s8swing</span><span class="s2">.</span><span class="s1">model</span><span class="s2">;</span>
+
+<span class="s3">// Clase que define un objeto de tipo planta procesadora de alimentos con sus parametros, constructor y metodo de interface</span>
+<span class="s0">public class </span><span class="s1">PlantaProceso </span><span class="s0">extends </span><span class="s1">Entidad </span><span class="s0">implements </span><span class="s1">Registrable </span><span class="s2">{</span>
+
+    <span class="s3">// Variables declaradas como private</span>
+    <span class="s0">private int </span><span class="s1">capacidadProceso</span><span class="s2">;</span>
+
+    <span class="s3">// Constructor con datos de herencia</span>
+    <span class="s0">public </span><span class="s1">PlantaProceso</span><span class="s2">(</span><span class="s1">String nombre</span><span class="s2">, </span><span class="s1">String direccion</span><span class="s2">, </span><span class="s0">int </span><span class="s1">capacidadProceso</span><span class="s2">) {</span>
+        <span class="s0">super</span><span class="s2">(</span><span class="s1">nombre</span><span class="s2">, </span><span class="s1">direccion</span><span class="s2">);</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">capacidadProceso </span><span class="s2">= </span><span class="s1">capacidadProceso</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// Metodos de interface mostrarResumen</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">mostrarResumen</span><span class="s2">() {</span>
+        <span class="s0">super</span><span class="s2">.</span><span class="s1">mostrarResumen</span><span class="s2">();</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot; || Capacidad diaria maxima a procesar en toneladas: &quot; </span><span class="s2">+ </span><span class="s0">this</span><span class="s2">.</span><span class="s1">capacidadProceso </span><span class="s2">+ </span><span class="s4">&quot; ||&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">String getResumen</span><span class="s2">() {</span>
+        <span class="s0">return this</span><span class="s2">.</span><span class="s1">capacidadProceso </span><span class="s2">+ </span><span class="s4">&quot; toneladas diarias procesadas.&quot;</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
